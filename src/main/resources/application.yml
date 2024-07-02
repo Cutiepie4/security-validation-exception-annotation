@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: identity-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123
+    url: jdbc:postgresql://localhost:5433/identity
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+jwt:
+  secret: TaqlmGv1iEDMRiFp/pHuID1+T84IABfuA0xXh4GhiUI=
