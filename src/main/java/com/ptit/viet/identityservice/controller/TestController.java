@@ -1,5 +1,6 @@
 package com.ptit.viet.identityservice.controller;
 
+import com.ptit.viet.identityservice.annotation.LogExecutionTime;
 import com.ptit.viet.identityservice.model.dto.request.CitizenRequest;
 import com.ptit.viet.identityservice.model.dto.response.ApiResponse;
 import com.ptit.viet.identityservice.exception.ApiException;
@@ -7,6 +8,7 @@ import com.ptit.viet.identityservice.exception.group.INotEmptyGroup;
 import com.ptit.viet.identityservice.mapper.CitizenMapper;
 import com.ptit.viet.identityservice.model.entity.Citizen;
 import com.ptit.viet.identityservice.repository.ICitizenRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +23,10 @@ public class TestController {
         this.citizenMapper = citizenMapper;
     }
 
+    @LogExecutionTime
     @GetMapping("/test")
-    public String index() {
-        return "Hello World";
+    public ResponseEntity<?> index() {
+        return ResponseEntity.ok("Hello World");
     }
 
     @GetMapping("/citizen/{id}")
